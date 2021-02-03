@@ -5,13 +5,12 @@ import {
   Redirect,
   Route,
 } from "react-router-dom";
-import ArtisteProfil from "./components/ArtisteProfil";
-import VinyleDetail from "./components/VinyleDetail";
-import Vinyles from "./components/Discographie";
-import HeaderImg from "./components/HeaderImg";
-import Artistes from "./components/Artistes";
+import Projects from "./components/Projects";
+import Admin from "./components/Admin";
+import Main from "./components/Main";
 import Nav from "./components/Nav";
 import "./App.css";
+import Presentation from "./components/Présentation";
 
 export default function Routter(vinyle) {
   return (
@@ -20,22 +19,20 @@ export default function Routter(vinyle) {
         <Nav />
         <Switch>
           <Route exact path="/">
-            <HeaderImg />
-            <h1>Teknoland Production</h1>
-          </Route>
-          <Route path="/artistes">
-            <h1>Teknoland Production Artistes</h1>
-            <Artistes />
-          </Route>
-          <Route path="/vinyles">
-            <h1>Teknoland Production Vinyles</h1>
-            <Vinyles />
+            {/* <h1>Mon Portfolio</h1> */}
+            <Main />
           </Route>
           <Route path="/admin">
             <h1>Admin</h1>
+            <Admin />
           </Route>
-          <Route path="/artiste/:idartiste" component={ArtisteProfil} />
-          <Route path="/teknoland/vinyle/:iddiscographie" component={VinyleDetail} />
+          <Route path="/présentation">
+            <Presentation />
+          </Route>
+          <Route path="/projects">
+            <h1>Projects</h1>
+            <Projects />
+          </Route>
           <Redirect to="/" />
         </Switch>
       </Router>
